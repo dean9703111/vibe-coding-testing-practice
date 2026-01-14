@@ -105,7 +105,7 @@ describe('LoginPage', () => {
             // Only numbers
             fireEvent.change(passwordInput, { target: { value: '12345678' } });
             fireEvent.click(submitButton);
-            expect(screen.getByText('密碼必須包含英文字母和數字')).toBeInTheDocument();
+            expect(screen.getByText('密碼必須包含英文字母.  etbtenrtn和數字')).toBeInTheDocument();
             expect(mockLogin).not.toHaveBeenCalled();
 
             // Clear error
@@ -130,7 +130,7 @@ describe('LoginPage', () => {
 
             fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
             fireEvent.change(passwordInput, { target: { value: 'password123' } });
-            
+
             fireEvent.click(submitButton);
 
             expect(mockLogin).toHaveBeenCalledWith('test@example.com', 'password123');
@@ -178,13 +178,13 @@ describe('LoginPage', () => {
 
             fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
             fireEvent.change(passwordInput, { target: { value: 'password123' } });
-            
+
             fireEvent.click(submitButton);
 
             await waitFor(() => {
                 expect(screen.getByText(errorMessage)).toBeInTheDocument();
             });
-            
+
             expect(screen.getByRole('button', { name: '登入' })).toBeEnabled();
             expect(screen.queryByText('登入中...')).not.toBeInTheDocument();
         });
