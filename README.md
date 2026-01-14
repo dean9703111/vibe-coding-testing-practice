@@ -60,7 +60,7 @@ B) /dashboard（Protected）
 - 顯示：Welcome, {username}
 - 用 mock 展示 3 個商品
 - 進來時會呼叫 /api/me 取得使用者資料
-- 若 token 無效（/api/me 回 401），要清 token 並導回 /login，並顯示 session expired 類訊息
+- 若 token 無效（/api/me 回 401），要清 token 並導回 /login，並顯示 auth expired 類訊息
 
 C) /admin（Protected + RBAC）
 - 只有 role=admin 才能看到頁面內容
