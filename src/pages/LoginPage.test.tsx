@@ -45,7 +45,7 @@ describe('LoginPage', () => {
             token: null,
             checkAuth: vi.fn()
         });
-        
+
         // 重置 VITE_API_URL 環境變數
         vi.stubEnv('VITE_API_URL', '');
     });
@@ -62,7 +62,7 @@ describe('LoginPage', () => {
             expect(screen.getByLabelText('電子郵件')).toBeInTheDocument();
             expect(screen.getByLabelText('密碼')).toBeInTheDocument();
             expect(screen.getByRole('button', { name: '登入' })).toBeInTheDocument();
-            expect(screen.getByText('測試帳號：任意 email 格式 / 密碼需包含英數且8位以上')).toBeInTheDocument();
+            expect(screen.getByText('測試帳號cdscdscsdcds：任意 email 格式 / 密碼需包含英數且8位以上')).toBeInTheDocument();
         });
     });
 
@@ -139,7 +139,7 @@ describe('LoginPage', () => {
 
             expect(screen.getByText('密碼必須包含英文字母和數字')).toBeInTheDocument();
             expect(mockLogin).not.toHaveBeenCalled();
-            
+
             await user.clear(passwordInput);
             await user.type(passwordInput, 'abcdefgh');
             await user.click(submitBtn);
@@ -193,7 +193,7 @@ describe('LoginPage', () => {
             expect(passwordInput).toBeDisabled();
 
             resolveLogin(); // clear pending promise
-            
+
             await waitFor(() => {
                 expect(submitBtn).not.toHaveTextContent('登入中...');
             });
@@ -226,7 +226,7 @@ describe('LoginPage', () => {
                 response: { data: { message: '自訂錯誤訊息' } }
             };
             mockLogin.mockRejectedValueOnce(mockError);
-            
+
             renderWithRouter(<LoginPage />);
             const user = userEvent.setup();
 
