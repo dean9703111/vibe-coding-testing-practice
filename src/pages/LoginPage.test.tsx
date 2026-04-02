@@ -62,7 +62,7 @@ describe('LoginPage', () => {
             expect(screen.getByLabelText('電子郵件')).toBeInTheDocument();
             expect(screen.getByLabelText('密碼')).toBeInTheDocument();
             expect(screen.getByRole('button', { name: '登入' })).toBeInTheDocument();
-            expect(screen.getByText('測試帳號cdscdscsdcds：任意 email 格式 / 密碼需包含英數且8位以上')).toBeInTheDocument();
+            expect(screen.getByText('測試帳號：任意 email 格式 / 密碼需包含英數且8位以上')).toBeInTheDocument();
         });
     });
 
